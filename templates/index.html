@@ -18,12 +18,29 @@
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
-    	  <input type="text" name="krediMiktari" placeholder="Çekmek istediğiniz kredi miktarı?" required="required" />
-        <input type="text" name="yas" placeholder="Kaç yaşındasınız?" required="required" />
-		    <input type="text" name="evDurumu" placeholder="Ev sahibiyseniz 1, kiracıysanız 0 giriniz." required="required" />
-		    <input type="text" name="aldigi_kredi_sayi" placeholder="Daha önce kaç kez kredi çektiniz?" required="required" />
-		    <input type="text" name="telefonDurumu" placeholder="Telefon sahibiyseniz 1, değilseniz 0 giriniz. " required="required" />
+
+
+        <input type="number" name="krediMiktari" placeholder="Çekmek istediğiniz kredi miktarı?" min="1000" max="100000", required>
+
+
+        <input type="number" name="yas" placeholder="Kaç yaşındasınız?" min="18" max="75", required>
+
+        <p> Ev sahibi misiniz? &nbsp;&nbsp;
+        <select name="evDurumu">
+          <option value="1">Evet</option>
+          <option value="0">Hayır</option>
+        </select></p>
+  
+        <input type="number" name="aldigi_kredi_sayi" placeholder="Daha önce kaç kez kredi çektin?" min="0" max="10", required>
+
+        
+        <p>Telefon sahibi misiniz? &nbsp;&nbsp;
+        <select name="telefonDurumu">
+          <option value="1">Evet</option>
+          <option value="0">Hayır</option>
+        </select>  </p>
         <button type="submit" class="btn btn-primary btn-block btn-large">Kredibilitem Nasıl?</button>
+        
     </form>
 
    <br>
